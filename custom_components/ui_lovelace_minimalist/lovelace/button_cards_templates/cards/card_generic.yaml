@@ -1,46 +1,56 @@
----
 ### Card Generic ###
 card_generic:
   template:
-    - "icon_info_bg"
     - "ulm_language_variables"
-  label: >
-    [[[
-      var unit = entity.attributes.unit_of_measurement != null ? " " + entity.attributes.unit_of_measurement : ""
-      if (entity.state == "on") {
-        return variables.ulm_on;
-      } else if (entity.state == "off") {
-        return variables.ulm_off;
-      } else if (entity.state == "unavailable") {
-        return variables.ulm_unavailable;
-      } else if (entity.state == "idle") {
-        return variables.ulm_idle;
-      } else if (entity.state == "open") {
-        return variables.ulm_open;
-      } else if (entity.state == "closed") {
-        return variables.ulm_closed;
-      } else {
-        return entity.state + unit;
-      }
-    ]]]
+  triggers_update: "all"
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    ulm_swapped: false
   styles:
-    icon:
-      - color: "rgba(var(--color-theme),0.9)"
-    label:
-      - align-self: "end"
-      - justify-self: "start"
-      - font-weight: "bold"
-      - font-size: "14px"
-      - margin-left: "12px"
-      - filter: "opacity(100%)"
-    name:
-      - justify-self: "start"
-      - align-self: "start"
-      - font-weight: "bolder"
-      - font-size: "12px"
-      - filter: "opacity(40%)"
-      - margin-left: "12px"
     grid:
-      - grid-template-areas: "'i l' 'i n'"
-      - grid-template-columns: "min-content auto"
-      - grid-template-rows: "min-content min-content"
+      - grid-template-areas: "'item1 item2'"
+      - grid-template-columns: "min-content 1fr"
+      - grid-template-rows: "min-content"
+      - column-gap: "12px"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "12px"
+  custom_fields:
+    item1:
+      card:
+        type: "custom:button-card"
+        template:
+          - icon_alert
+        entity: "[[[ return entity.entity_id ]]]"
+        variables:
+          tap_action: more-info
+    item2:
+      card:
+        type: "custom:button-card"
+        template:
+          - "tag"
+        entity: "[[[ return entity.entity_id ]]]"
+        variables:
+          ulm_swapped: "[[[ return variables.ulm_swapped ]]]"
+          ulm_label_1: >
+            [[[
+              var unit = entity.attributes.unit_of_measurement != null ? " " + entity.attributes.unit_of_measurement : ""
+              if (entity.state == "on") {
+                return variables.ulm_on;
+              } else if (entity.state == "off") {
+                return variables.ulm_off;
+              } else if (entity.state == "unavailable") {
+                return variables.ulm_unavailable;
+              } else if (entity.state == "idle") {
+                return variables.ulm_idle;
+              } else if (entity.state == "open") {
+                return variables.ulm_open;
+              } else if (entity.state == "closed") {
+                return variables.ulm_closed;
+              } else {
+                return entity.state + unit;
+              }
+            ]]]
