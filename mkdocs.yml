@@ -6,32 +6,34 @@ site_url: "https://ui-lovelace-minimalist.github.io/UI/"
 # Repository
 repo_url: "https://github.com/UI-Lovelace-Minimalist/UI"
 repo_name: "UI-Lovelace-Minimalist/UI"
-edit_url: "edit/dev/docs"
+edit_uri: "edit/dev/docs"
 
+# https://pythonrepo.com/repo/lukasgeiter-mkdocs-awesome-pages-plugin-python-documentation
 nav:
   - Home: "index.md"
   - Setup:
-      - Installation: "setup/install.md"
+      - Download: "setup/download.md"
+      - Installation: "setup/installation.md"
       - Configuration: "setup/configuration.md"
-  - Usage:
-      - Cards:
-          - card_light: "usage/cards/card_light.md"
+  - "... | usage/**/*.md"
   - Development:
+      - Card Style Guide: "development/card_style_guide.md"
       - Docs Style Guide: "development/docs_style_guide.md"
+      - Custom-Cards: "development/custom_cards.md"
 
 extra_css:
-  - "stylesheets/extra.css"
+  - "assets/stylesheets/extra.css"
 
 theme:
   name: "material"
   language: "en"
-  font:
-    text: "Comfortaa"
+  font: false
   logo: "assets/logos/website_logo.png"
   favicon: "assets/logos/favicon/favicon-32x32.png"
+  custom_dir: "docs/assets/overrides"
   palette:
     - media: "(prefers-color-scheme: light)"
-      scheme: "default"
+      primary: "white"
       toggle:
         icon: "material/weather-night"
         name: "Dark mode"
@@ -44,7 +46,8 @@ theme:
     - "navigation.instant"
     - "navigation.tracking"
     - "navigation.top"
-    - "toc.integrate"
+    - "navigation.tabs"
+    - "navigation.indexes"
     - "search.suggest"
     - "search.highlight"
     - "search.share"
@@ -67,6 +70,10 @@ markdown_extensions:
   - "pymdownx.caret"
   - "pymdownx.keys"
   - "pymdownx.tilde"
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: "UI-Lovelace-Minimalist"
+      repo: "UI"
   - "tables"
   - "footnotes"
   - "attr_list"
@@ -77,3 +84,4 @@ markdown_extensions:
 
 plugins:
   - "search"
+  - "awesome-pages"
