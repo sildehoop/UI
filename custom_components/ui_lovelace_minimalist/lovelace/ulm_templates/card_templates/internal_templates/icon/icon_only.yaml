@@ -1,0 +1,33 @@
+---
+### Icon Only ###
+icon_only:
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "rgba(var(--color-theme),0.2)"
+    img_cell:
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
+      - place-self: "center"
+      - width: "42px"
+      - height: "42px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - background: "none"
+      - box-shadow: "none"
+      - padding: "0px"
+      - width: "min-content"
+  custom_fields:
+    notification: >
+      [[[
+        if (entity.state =="unavailable"){
+          return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
+        }
+      ]]]
+  size: "20px"
