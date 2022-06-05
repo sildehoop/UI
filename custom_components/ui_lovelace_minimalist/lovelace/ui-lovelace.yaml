@@ -15,7 +15,7 @@ views:
           - type: "custom:button-card"
             template: "card_title"
             name: "Congrats with your installation 🎉"
-            label: "Explore here some of the wonderfull 'Minimalistic-UI' cards we offer"
+            label: "Explore here some of the wonderful 'Minimalistic-UI' cards we offer"
           - type: "custom:auto-entities"
             card:
               type: "grid"
@@ -29,14 +29,13 @@ views:
                 - domain: "weather"
                   options:
                     type: "custom:button-card"
-                    template: "card_paddy_welcome_with_weather"
+                    template: "card_welcome_scenes"
                     variables:
-                      ulm_card_paddy_welcome_time: "sensor.time"
-                      ulm_card_paddy_welcome_weather_provider: "this.entity_id"
+                      ulm_weather: "this.entity_id"
           - type: "custom:button-card"
             template: "card_title"
             name: "Lights"
-            label: "These are your 'Minimalist' light cards"
+            label: "This is the Minimalist-light-card"
           - type: "custom:auto-entities"
             card:
               type: "grid"
@@ -58,7 +57,7 @@ views:
           - type: "custom:button-card"
             template: "card_title"
             name: "Binary Sensors"
-            label: "These are your 'Minimalist' binary_sensor cards"
+            label: "This is the Minimalist-binary_sensor-card"
           - type: "custom:auto-entities"
             card:
               type: "grid"
@@ -79,7 +78,7 @@ views:
           - type: "custom:button-card"
             template: "card_title"
             name: "Sensors"
-            label: "These are your 'Minimalist' sensors card"
+            label: "This is the Minimalist-sensor-card"
           - type: "custom:auto-entities"
             card:
               type: "grid"
@@ -97,7 +96,7 @@ views:
           - type: "custom:button-card"
             template: "card_title"
             name: "Batteries"
-            label: "These are your 'Minimalist' battery cards"
+            label: "This is the Minimalist-battery-card"
           - type: "custom:auto-entities"
             card:
               type: "grid"

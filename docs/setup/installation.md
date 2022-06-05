@@ -18,7 +18,7 @@ Open your Home Assistant instance and start setting up "UI Lovelace Minimalist" 
 
 Now you can configure the Integration, you can do this also after it's installed!
 
-![hacs_integration_config](../../assets/img/setup/hacs_integration_config.png)
+![hacs_integration_config](../assets/img/setup/hacs_integration_config.png)
 
 - Language: Will set the language for the Integration.
 - Side panel enabled: If you want to add an Entry in the Side Panel for the auto generated Dashboard. (Still under heavy development!)
@@ -40,6 +40,8 @@ Now you can configure the Integration, you can do this also after it's installed
     frontend:
       themes: !include_dir_merge_named themes
     ```
+    
+    You will also need to change your user theme to the chosen theme or else no visual modifications will work.
 
 - Include Custom Cards: This will make sure almost all dependency cards are included and configured for you.
 
@@ -55,6 +57,8 @@ Now you can configure the Integration, you can do this also after it's installed
 | [`mini-media-player`](https://github.com/kalkih/mini-media-player)      |
 | [`my-cards-slider-card`](https://github.com/AnthonMS/my-cards)          |
 | [`light-entity-card`](https://github.com/ljmerza/light-entity-card)     |
+| [`auto-entities`](https://github.com/thomasloven/lovelace-auto-entities)|
+| [`simple-weather-card`](https://github.com/kalkih/simple-weather-card)  |
 
 Hit submit and in the Sidebar a new Dashboard entry should appear.
 A new file for the dashboard configuration, with a small example, where you can generate your own layout should have been created under that location:
@@ -62,7 +66,6 @@ A new file for the dashboard configuration, with a small example, where you can 
 ```yaml
 config
 └── ui_lovelace_minimalist
-    ├── config
     ├── custom_cards
     └── dashboard
         └── ui-lovelace.yaml
